@@ -1,0 +1,21 @@
+uuid: 931bed00-275f-457d-a8af-ec8490876542
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publicati
+    - node.type.resource
+  module:
+    - datetime
+id: node.resource.field_publicati
+field_name: field_publicati
+entity_type: node
+bundle: resource
+label: 'Publication Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

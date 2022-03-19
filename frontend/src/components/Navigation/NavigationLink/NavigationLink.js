@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NavigationLink = (link, linkText) => {
+const NavigationLink = ({props}) => {
   return (
-    <a href={link}>{linkText}</a>
+    <a href={props.attributes.link}>{props.attributes.title}</a>
   );
 }
 

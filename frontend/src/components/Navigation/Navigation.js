@@ -13,22 +13,20 @@ const Navigation = () => {
     });
   }, []);
 
+  const renderNavLinks = data.map((el) => {
+    console.log(el);
+    return (
+      <NavigationLink props={el}/>
+    )
+  });
+
   if (isLoading) {
     return <span>Loading...</span>
   };
 
-  if (!isLoading) {
-    const renderNavLinks = data.map((el) => {
-      console.log(el);
-      return (
-        <a href={el.attributes.url}>{el.attributes.title}</a>
-      )
-    });
-    return (
-      renderNavLinks
-    );
-  }
+  return (
+    renderNavLinks
+  );
 };
-
 
 export default Navigation;

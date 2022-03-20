@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import useApiRequest from '../../hooks/useApiRequest';
 import NavigationLink from './NavigationLink/NavigationLink'
 
 const Navigation = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get('http://backend.docksal.site/jsonapi/menu_items/main').then(response => {
-      setData(response.data.data);
-      setIsLoading(false);
-    });
-  }, []);
+  const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/menu_items/main');
 
   const renderNavLinks = data.map((el) => {
     console.log(el);
@@ -20,7 +13,7 @@ const Navigation = () => {
     )
   });
 
-  if (isLoading) {
+  if (!isLoaded) {
     return <span>Loading...</span>
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavigationLink = ({props}) => {
   return (
-    <a href={props.attributes.link}>{props.attributes.title}</a>
+    <a className="item" href={props.attributes.link}>{props.attributes.title}</a>
   );
 }
 

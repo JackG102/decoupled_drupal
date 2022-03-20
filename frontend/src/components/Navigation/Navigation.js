@@ -19,7 +19,7 @@ const Navigation = () => {
 
   return (
     <div className="ui attached stackable menu">
-        <div class="ui container">
+        <div className="ui container">
           {renderNavLinks}
         </div>
     </div>

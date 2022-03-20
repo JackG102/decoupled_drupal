@@ -10,9 +10,13 @@ const Resource = () => {
   };
 
   return (
-    <div>
-      <h3>Resource</h3>
-    </div>
+    <article>
+      <h3>{data.attributes.title}</h3>
+      <span>Resource Author: {data.attributes.field_resource_author}</span>
+      <span>Publication Year: {data.attributes.field_publicati}</span>
+      <div className="resource--body" dangerouslySetInnerHTML={{ __html: data.attributes.body.processed }}>
+      </div>
+    </article>
   );
 }
 

@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation/Navigation';
 const Header = () => {
   return (
     <header>
-      <span>Name of Site</span>
+      <h1>Decoupled Drupal React USWDS Project</h1>
       <Navigation />
     </header>
   );

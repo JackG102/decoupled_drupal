@@ -6,8 +6,7 @@ const Navigation = () => {
 
   const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/menu_items/main');
 
-  const renderNavLinks = data.map((el) => {
-    console.log(el);
+  const renderNavLinks = data?.data?.map((el) => {
     return (
       <NavigationLink props={el}/>
     )

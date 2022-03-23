@@ -12,7 +12,7 @@ const useApiRequest = url => {
         .get(url)
         .then(response => {
           setIsLoaded(true);
-          setData(response.data.data);
+          setData(response.data);
         })
         .catch(error => {
           setError(error);

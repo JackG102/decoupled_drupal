@@ -4,7 +4,7 @@ import useApiRequest from '../../hooks/useApiRequest';
 
 const Resource = () => {
 
-  const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/node/resource/191eb35d-0b03-428e-9ef4-dbc9ca2f8cb7?include=field_topics,field_resource_type,field_resource_video');
+  const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/node/resource/191eb35d-0b03-428e-9ef4-dbc9ca2f8cb7?include=field_topics,field_resource_type,field_resource_video,field_resource_pdf,field_resource_image');
   console.log(data);
   const renderTopics = data?.included?.map((el) => {
     if (el.type === "taxonomy_term--topics") {
@@ -35,7 +35,7 @@ const Resource = () => {
   };
 
   return (
-    <article>
+    <article key={data?.data?.id}>
       <h3>{data?.data?.attributes?.title}</h3>
       <div>Resource Author: {data?.data?.attributes?.field_resource_author}</div>
       <div>Publication Year: {data?.data?.attributes?.field_publicati}</div>

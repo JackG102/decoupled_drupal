@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const renderNavLinks = data?.data?.map((el) => {
     return (
-      <NavigationLink props={el}/>
+      <NavigationLink key={el.id} props={el}/>
     )
   });
 

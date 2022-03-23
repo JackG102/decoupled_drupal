@@ -1,10 +1,11 @@
 import React from 'react';
+import Embed from 'react-tiny-oembed'
 import useApiRequest from '../../hooks/useApiRequest';
 
 const Resource = () => {
 
-  const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/node/resource/191eb35d-0b03-428e-9ef4-dbc9ca2f8cb7?include=field_topics,field_resource_type');
-
+  const { error, isLoaded, data } = useApiRequest('http://backend.docksal.site/jsonapi/node/resource/191eb35d-0b03-428e-9ef4-dbc9ca2f8cb7?include=field_topics,field_resource_type,field_resource_video');
+  console.log(data);
   const renderTopics = data?.included?.map((el) => {
     if (el.type === "taxonomy_term--topics") {
       return (
@@ -17,6 +18,14 @@ const Resource = () => {
     if (el.type === "taxonomy_term--resource_type") {
       return (
         <li>{el.attributes.name}</li>
+      );
+    }
+  });
+
+  const renderResourceVideo = data?.included?.map((el) => {
+    if (el.type === "media--remote_video") {
+      return (
+        <Embed url={el.attributes.field_media_oembed_video} />
       );
     }
   });
@@ -37,12 +46,13 @@ const Resource = () => {
         </ul>
       </div>
       <div>
-        <span>Topics:</span>
+        <span>Resource Type:</span>
         <ul>
           {renderResourceType}
         </ul>
       </div>
       <div>Publication Year: {data?.data?.attributes?.field_publicati}</div>
+      {renderResourceVideo}
       <div className="resource--body" dangerouslySetInnerHTML={{ __html: data?.data?.attributes?.body.processed }}>
       </div>
     </article>

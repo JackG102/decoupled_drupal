@@ -9,7 +9,7 @@ const Resource = () => {
   const renderTopics = data?.included?.map((el) => {
     if (el.type === "taxonomy_term--topics") {
       return (
-        <li>{el.attributes.name}</li>
+        <li key={el.id} >{el.attributes.name}</li>
       );
     }
   });
@@ -17,7 +17,7 @@ const Resource = () => {
   const renderResourceType = data?.included?.map((el) => {
     if (el.type === "taxonomy_term--resource_type") {
       return (
-        <li>{el.attributes.name}</li>
+        <li key={el.id} >{el.attributes.name}</li>
       );
     }
   });
@@ -25,7 +25,7 @@ const Resource = () => {
   const renderResourceVideo = data?.included?.map((el) => {
     if (el.type === "media--remote_video") {
       return (
-        <Embed url={el.attributes.field_media_oembed_video} />
+        <Embed key={el.id} url={el.attributes.field_media_oembed_video} />
       );
     }
   });

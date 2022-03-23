@@ -1,10 +1,13 @@
 import React from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import Resource from '../../content_types/Resource/Resource';
 
 const PageContainer = () => {
   return (
     <div className="ui container">
-      <Resource />
+        <Routes>
+          <Route path="/resource_library" element={<Resource />} />
+        </Routes>
     </div>
   )
 };

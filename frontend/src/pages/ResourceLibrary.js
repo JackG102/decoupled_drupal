@@ -7,10 +7,6 @@ const ResourceLibrary = () => {
 
   const [apiUrl, setApiUrl] = useState('http://backend.docksal.site/jsonapi/node/resource/?page%5Blimit%5D=10');
 
-  useEffect(() => {
-    setApiUrl('')
-  }, [apiUrl]);
-
   const { error, isLoaded, data } = useApiRequest(apiUrl);
 
   if (!isLoaded) {

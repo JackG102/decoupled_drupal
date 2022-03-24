@@ -15,12 +15,11 @@ const ResourceLibrary = () => {
 
   if (isLoaded && data.data) {
     if (data.data.length > 0) {
-      console.log(data);
       return (
         <article>
           <h1>Resource Library</h1>
           <ResourceTeaserContainer data={data.data}/>
-          <Pager urlApi={data.links.next.href} setApiUrl={setApiUrl}/>
+          <Pager urlApi={data.links} setApiUrl={setApiUrl}/>
         </article>
       );
     }

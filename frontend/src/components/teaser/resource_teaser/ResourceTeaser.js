@@ -1,16 +1,17 @@
 import React from 'react';
 
-const ResourceTeaser = (url, title, publication_year, author) => {
+const ResourceTeaser = ({url, title, publication_year, author}) => {
   return (
-    <a href={url}>
-      <div className="teaser--resource">
-        <h3>{title}</h3>
-        <div>
-          {publication_year}
-          {author}
+    <div className="teaser--resource item content">
+      <div className="content">
+        <a href={url}><h3 className="header">{title}</h3></a>
+        <div className="description">
+          <span>{publication_year}</span>
+          <br />
+          <span>{author}</span>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 

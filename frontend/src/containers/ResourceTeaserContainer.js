@@ -10,7 +10,7 @@ const ResourceTeaserContainer = (data) => {
           title={el?.attributes?.title}
           publication_year={el?.attributes?.field_publicati}
           author={el?.attributes?.field_resource_author}
-          url={`resource/${el?.id}`}
+          url={`${el?.id}`}
         />
         <hr />
       </article>

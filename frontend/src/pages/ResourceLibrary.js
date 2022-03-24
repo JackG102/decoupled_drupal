@@ -5,10 +5,10 @@ import useApiRequest from '../hooks/useApiRequest';
 
 const ResourceLibrary = () => {
 
-  const [apiUrl, setApiUrl] = useState('');
+  const [apiUrl, setApiUrl] = useState('http://backend.docksal.site/jsonapi/node/resource/?page%5Blimit%5D=10');
 
   useEffect(() => {
-    setApiUrl('http://backend.docksal.site/jsonapi/node/resource/?page%5Blimit%5D=10')
+    setApiUrl('')
   }, [apiUrl]);
 
   const { error, isLoaded, data } = useApiRequest(apiUrl);
@@ -19,11 +19,12 @@ const ResourceLibrary = () => {
 
   if (isLoaded && data.data) {
     if (data.data.length > 0) {
+      console.log(data);
       return (
         <article>
           <h1>Resource Library</h1>
           <ResourceTeaserContainer data={data.data}/>
-          <Pager apiUrl={apiUrl} setApiUrl={setApiUrl}/>
+          <Pager urlApi={data.links.next.href} setApiUrl={setApiUrl}/>
         </article>
       );
     }

@@ -4,9 +4,8 @@ import ResourceTeaser from '../components/teaser/resource_teaser/ResourceTeaser'
 const ResourceTeaserContainer = (data) => {
 
   const renderResourceTeasers = data.data.map((el) => {
-
     return (
-      <>
+      <article key={el.id}>
         <ResourceTeaser 
           title={el?.attributes?.title}
           publication_year={el?.attributes?.field_publicati}
@@ -14,8 +13,7 @@ const ResourceTeaserContainer = (data) => {
           url={`resource/${el?.id}`}
         />
         <hr />
-      </>
-
+      </article>
     );
   });
 

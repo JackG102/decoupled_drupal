@@ -30,7 +30,6 @@ module:
   jsonapi: 0
   jsonapi_menu_items: 0
   jsonapi_resources: 0
-  jsonapi_search_api: 0
   link: 0
   media: 0
   media_library: 0

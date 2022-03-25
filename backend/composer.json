@@ -22,7 +22,6 @@
         "drupal/core-recommended": "^9",
         "drupal/devel": "^4.1",
         "drupal/jsonapi_menu_items": "^1.2",
-        "drupal/jsonapi_search_api": "^1.0@RC",
         "drush/drush": "^10.2"
     },
     "conflict": {

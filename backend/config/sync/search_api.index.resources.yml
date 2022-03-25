@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_topics
     - search_api.server.drupal
   module:
+    - taxonomy
     - node
     - search_api
 id: resources
@@ -24,22 +25,26 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
-  field_resource_type:
-    label: 'Resource Type'
-    datasource_id: 'entity:node'
-    property_path: field_resource_type
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_resource_type
-  field_topics:
+  name:
     label: Topics
     datasource_id: 'entity:node'
-    property_path: field_topics
-    type: text
+    property_path: 'field_topics:entity:name'
+    type: string
     dependencies:
       config:
         - field.storage.node.field_topics
+      module:
+        - taxonomy
+  name_1:
+    label: 'Resource Type » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_resource_type:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_resource_type
+      module:
+        - taxonomy
   title:
     label: Title
     datasource_id: 'entity:node'
@@ -69,8 +74,6 @@ processor_settings:
     all_fields: false
     fields:
       - body
-      - field_resource_type
-      - field_topics
       - title
     title: true
     alt: true
@@ -87,8 +90,6 @@ processor_settings:
     all_fields: false
     fields:
       - body
-      - field_resource_type
-      - field_topics
       - title
   language_with_fallback: {  }
   rendered_item: {  }
